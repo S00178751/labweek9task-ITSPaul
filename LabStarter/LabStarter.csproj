@@ -43,7 +43,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ActivityTracker.cs" />
-    <Compile Include="Collectable.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Program.cs" />
