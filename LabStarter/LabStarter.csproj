@@ -86,6 +86,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Audio\PlayerDirection\0.wav" />
+    <Content Include="Content\Audio\PlayerDirection\1.wav" />
+    <Content Include="Content\Audio\PlayerDirection\2.wav" />
+    <Content Include="Content\Audio\PlayerDirection\3.wav" />
+    <Content Include="Content\Audio\PlayerDirection\4.wav" />
     <Content Include="Content\background.png" />
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\chaser.png" />

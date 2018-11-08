@@ -121,10 +121,10 @@ namespace Sprites
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             //draw the sprite , specify the postion and source for the image withtin the sprite sheet
-            spriteBatch.Begin();
+            //spriteBatch.Begin();
             // Changed to allow for sprite effect
             spriteBatch.Draw(spriteImage, position,sourceRectangle,Color.White,0f,Vector2.Zero,1.0f,_effect,0f);
-            spriteBatch.End();
+            //spriteBatch.End();
         }       
 
     }

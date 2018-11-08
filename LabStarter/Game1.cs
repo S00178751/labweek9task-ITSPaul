@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
 using Sprites;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LabStarter
 {
@@ -17,6 +18,8 @@ namespace LabStarter
         SpriteBatch spriteBatch;
         string Message = "ppowell Paul Powell";
         SpriteFont messageFont;
+        private Texture2D BackgroundTx;
+        private Player player;
 
         public ActiveScreenState current { get; private set; }
 
@@ -52,6 +55,21 @@ namespace LabStarter
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(spriteBatch);
             messageFont = Content.Load<SpriteFont>("Message");
+
+            SoundEffect[] _PlayerSounds = new SoundEffect[5];
+            for (int i = 0; i < _PlayerSounds.Length; i++)
+                _PlayerSounds[i] =
+                    Content.Load<SoundEffect>(@"Audio/PlayerDirection/" + i.ToString());
+
+            BackgroundTx = Content.Load<Texture2D>("background");
+            player = new Player(new Texture2D[] {Content.Load<Texture2D>(@"Images/left"),
+                                                Content.Load<Texture2D>(@"Images/right"),
+                                                Content.Load<Texture2D>(@"Images/up"),
+                                                Content.Load<Texture2D>(@"Images/down"),
+                                                Content.Load<Texture2D>(@"Images/stand")},
+                _PlayerSounds,
+                    new Vector2(200, 200), 8, 0, 5.0f);
+
             // Load all the assets and create your objects here
 
 
@@ -81,6 +99,7 @@ namespace LabStarter
                 case ActiveScreenState.OPENING:
                     break;
                 case ActiveScreenState.PLAY:
+                    player.Update(gameTime);
                     break;
                 case ActiveScreenState.ENDING:
                     break;
@@ -105,6 +124,7 @@ namespace LabStarter
                     break;
                 case ActiveScreenState.PLAY:
                     draw_play_screen(spriteBatch);
+                    
                     break;
                 case ActiveScreenState.ENDING:
                     break;
@@ -118,8 +138,10 @@ namespace LabStarter
 
         private void draw_play_screen(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(BackgroundTx, GraphicsDevice.Viewport.Bounds, Color.White);
             spriteBatch.DrawString(messageFont,
                 Message, new Vector2(20, 20), Color.White);
+            player.Draw(spriteBatch);
         }
     }
 }
