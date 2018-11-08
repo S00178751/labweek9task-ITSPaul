@@ -43,8 +43,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ActivityTracker.cs" />
+    <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -83,12 +86,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\background.png" />
+    <Content Include="Content\Images\background.png" />
+    <Content Include="Content\Images\chaser.png" />
+    <Content Include="Content\Images\down.png" />
+    <Content Include="Content\Images\left.png" />
+    <Content Include="Content\Images\player.png" />
+    <Content Include="Content\Images\right.png" />
+    <Content Include="Content\Images\stand.png" />
+    <Content Include="Content\Images\up.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="App.config" />
     <None Include="app.manifest" />
+    <None Include="Content\Message.spritefont" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

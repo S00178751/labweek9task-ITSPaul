@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
+using Sprites;
 
 namespace LabStarter
 {
@@ -14,6 +15,8 @@ namespace LabStarter
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        string Message = "ppowell Paul Powell";
+        SpriteFont messageFont;
 
         public ActiveScreenState current { get; private set; }
 
@@ -32,7 +35,7 @@ namespace LabStarter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            current = ActiveScreenState.PLAY;
             base.Initialize();
         }
         
@@ -48,7 +51,7 @@ namespace LabStarter
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(spriteBatch);
-            
+            messageFont = Content.Load<SpriteFont>("Message");
             // Load all the assets and create your objects here
 
 
@@ -115,7 +118,8 @@ namespace LabStarter
 
         private void draw_play_screen(SpriteBatch spriteBatch)
         {
-
+            spriteBatch.DrawString(messageFont,
+                Message, new Vector2(20, 20), Color.White);
         }
     }
 }
