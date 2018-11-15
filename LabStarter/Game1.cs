@@ -20,6 +20,7 @@ namespace LabStarter
         SpriteFont messageFont;
         private Texture2D BackgroundTx;
         private Player player;
+        RandomEnemy renemy;
 
         public ActiveScreenState current { get; private set; }
 
@@ -69,7 +70,10 @@ namespace LabStarter
                                                 Content.Load<Texture2D>(@"Images/stand")},
                 _PlayerSounds,
                     new Vector2(200, 200), 8, 0, 5.0f);
-
+            renemy = new RandomEnemy(this,
+                Content.Load<Texture2D>(@"Images/player"),
+                new Vector2(200, 200), 14
+                );
             // Load all the assets and create your objects here
 
 
@@ -100,6 +104,7 @@ namespace LabStarter
                     break;
                 case ActiveScreenState.PLAY:
                     player.Update(gameTime);
+                    renemy.Update(gameTime);
                     break;
                 case ActiveScreenState.ENDING:
                     break;
@@ -142,6 +147,7 @@ namespace LabStarter
             spriteBatch.DrawString(messageFont,
                 Message, new Vector2(20, 20), Color.White);
             player.Draw(spriteBatch);
+            renemy.Draw(spriteBatch);
         }
     }
 }
