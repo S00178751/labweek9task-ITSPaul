@@ -13,5 +13,6 @@ namespace Helpers
         public static ContentManager contentManager;
         public static SpriteFont GameFont;
         public static GraphicsDevice graphicsDevice;
+        public static Random staticRandom = new Random();
     }
 }

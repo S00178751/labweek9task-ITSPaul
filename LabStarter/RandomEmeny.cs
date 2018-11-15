@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Helpers;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,8 @@ namespace Sprites
         public RandomEnemy(Game g, Texture2D texture, Vector2 userPosition, int framecount ) : 
             base(g,texture,userPosition,framecount)
         {
-            TargetPosition = new Vector2(new Random().Next(0,g.GraphicsDevice.Viewport.Bounds.Size.X),
-                                         new Random().Next(0, g.GraphicsDevice.Viewport.Bounds.Size.Y));
+            TargetPosition = new Vector2(Helper.staticRandom.Next(0,g.GraphicsDevice.Viewport.Bounds.Size.X),
+                                         Helper.staticRandom.Next(0, g.GraphicsDevice.Viewport.Bounds.Size.Y));
 
         }
 
@@ -26,8 +27,8 @@ namespace Sprites
                 // Slide the last bit of the way in
                 position = TargetPosition;
                 // Generate a new Random Target Position
-                TargetPosition = new Vector2(new Random().Next(0, myGame.GraphicsDevice.Viewport.Bounds.Size.X),
-                                 new Random().Next(0, myGame.GraphicsDevice.Viewport.Bounds.Size.Y));
+                TargetPosition = new Vector2(Helper.staticRandom.Next(0, myGame.GraphicsDevice.Viewport.Bounds.Size.X),
+                                 Helper.staticRandom.Next(0, myGame.GraphicsDevice.Viewport.Bounds.Size.Y));
             }
             // Continue towards the Target
             else position = Vector2.Lerp(position,TargetPosition,0.1f);
